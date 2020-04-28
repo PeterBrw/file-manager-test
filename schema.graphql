@@ -1,0 +1,10 @@
+type Query {
+    getFiles: [File]!
+}
+
+type File {
+    id: ID!
+    name: String!
+    type: String!
+    children: [File]!
+}
