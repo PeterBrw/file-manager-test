@@ -1,7 +1,20 @@
-const db = require("./db");
+// const db = require("./db");
+const { data } = require("./data/data");
+const { path } = require("./data/path");
+const { returnChildren, returnName } = require("./logic");
 
 const Query = {
-    getFiles: () => db.files.list(),
+    getFiles: () => data,
+    getChildren: (parent, { id }) => returnChildren(data, id),
+    getPath: () => path[path.length - 1].id,
+    getName: (parent, { id }) => returnName(data, id),
 };
 
-module.exports = { Query };
+const Mutation = {
+    addPath: (parent, { id }) => {
+        path.push({ id });
+        return path[path.length - 1].id;
+    },
+};
+
+module.exports = { Query, Mutation };

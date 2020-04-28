@@ -1,5 +1,12 @@
 type Query {
     getFiles: [File]!
+    getChildren(id: ID!): [File]!
+    getPath: ID!
+    getName(id: ID!): String
+}
+
+type Mutation {
+    addPath(id: ID): ID
 }
 
 type File {
@@ -7,4 +14,8 @@ type File {
     name: String!
     type: String!
     children: [File]!
+}
+
+type Path {
+    id: ID!
 }

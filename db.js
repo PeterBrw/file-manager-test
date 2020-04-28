@@ -4,4 +4,5 @@ const store = new DataStore("./data");
 
 module.exports = {
     files: store.collection("files"),
+    path: store.collection("path")
 };
